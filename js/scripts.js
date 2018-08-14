@@ -1,44 +1,30 @@
-$(document).ready(function() {
-  $("#userInput").submit(function(event) {
+$(document).ready(function(){
+  $("form#luckSurvey").submit(function(event){
     event.preventDefault();
 
-    var countToInput = parseInt($("#countTo").val());
-    var countByInput = parseInt($("#countBy").val());
-    var outputs = [];
-    var currentTotal = 1;
+    var luckScore = 0;
 
-    /*handles empty input*/
-    if (!countToInput || !countByInput) {
-      alert("You gotta enter a number, derp!");
-    };
-console.log(countToInput, countByInput, outputs, currentTotal);
-    /*handles ratio issue*/
-    if (countToInput < countByInput) {
-        alert("Try harder. You can't count to a number with more than whatcha got.");
-        }
+    $("input:checkbox[name=lucky]:checked").each(function() {
+      luckScore += parseInt($(this).val());
+    });
+    $("input:checkbox[name=unlucky]:checked").each(function() {
+      luckScore += parseInt($(this).val());
+    });
+    console.log(luckScore);
+    $('#luckSurvey').hide();
 
-    /*handling negative numbers- bug: doesn't handle counting negatively with positive numbers
-    if (countToInput < 0 ) {
-      for(var index = -1; currentTotal > countToInput; index -= 1) {
-        currentTotal = countByInput * index;
-        outputs.push(currentTotal);
-        console.log(outputs);
+
+    if (luckScore >= 3) {
+      $("#luckPositive").show();
     }
+    else if (luckScore >= -2 && luckScore <= 2) {
+      $("#luckNeutral").show();
     }
-    */
-
-    if (countToInput < 0 || countByInput < 0) {
-        alert("Please stay positive. No negative numbers.");
-        }
-
-
-    /*handling postive numbers*/
-    for(var index = 1; currentTotal < countToInput; index += 1) {
-      currentTotal = countByInput * index;
-      outputs.push(currentTotal);
-      console.log(outputs);
+    else if (luckScore <= -3) {
+      $("#luckNegative").show();
     }
-
-    $("#output").text(outputs);
+    else {
+      $("#luckNegative").show();
+    }
   });
 });

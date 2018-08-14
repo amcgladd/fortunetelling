@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Unfortune Teller</title>
+    <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
+    <link href="css/styles.css" rel="stylesheet" type="text/css">
+    <script src="js/jquery-3.3.1.js"></script>
+    <script src="js/scripts.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="jumbotron">
+        <h2>Tread carefully.</h2>
+      </div>
+      <form id="luckSurvey">
+        <div class="form-group">
+          <p>In the past three days, the following events have occurred to you:</p>
+          <input type="checkbox" name="lucky" value="1"> Found a four-leaf clover.<br>
+          <input type="checkbox" name="lucky" value="1"> A ladybug gently napped on your eyelash.<br>
+          <input type="checkbox" name="lucky" value="1"> A rainbow sprouted unicorn wings in your salad.<br>
+          <input type="checkbox" name="lucky" value="1"> You found a dollar in the wallet you stole while riding home on the max.<br>
+          <input type="checkbox" name="lucky" value="1"> You found a shooting star in your sticker collection.<br>
+        </div>
+        <div class="form-group">
+          <p>In the past year, these events regrettably and embarrassingly happened upon you:</p>
+          <input type="checkbox" name="unlucky" value="-1"> Incidentally a piece of your roomate's finger ended up in last night's dinner.<br>
+          <input type="checkbox" name="unlucky" value="-1">You went fishing! ...the only thing you caught was Zika virus.<br>
+          <input type="checkbox" name="unlucky" value="-1">You kissed a coy fish under a new moon and were caught blue-handed.<br>
+          <input type="checkbox" name="unlucky" value="-1">Your daily apple was rotten, worm-infested, and maggot heavy.<br>
+          <input type="checkbox" name="unlucky" value="-1">Your sister died of dysentery whilst playing the video game Oregon Trail.<br>
+        </div>
+       <button type="submit">Test your luck</button>
+      </form>
+      <span class="summary" id="luckPositive">
+        <p><b>Watch out, there may or may not be a halo hanging above you. </b></p>
+      </span>
+      <span class="summary" id="luckNeutral">
+        <p><b>You're a muggle.</b></p>
+      </span>
+      <span class="summary" id="luckNegative">
+        <p><b>A powerful witch has pooped in your cheerios!!!!</b></p>
+      </span>
+    </div>
+  </body>
+</html>
